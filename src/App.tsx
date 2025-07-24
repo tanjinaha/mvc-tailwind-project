@@ -13,6 +13,7 @@ import CustomerListCards from "./components/CustomerListCards";
 import ConsultantList from "./components/ConsultantList";
 import ConsultantListCards from "./components/ConsultantListCards";
 import CompleteOrderList from "./components/CompleteOrderList"; // ✅ FIXED: Keep only this one
+import FindOrderPage from "@/components/FindOrderPage";
 
 // ✅ Home page with links to all sections
 function Home() {
@@ -27,10 +28,12 @@ function Home() {
         <Link to="/consultants/cards" className="block text-blue-600 underline">Consultants (Card View)</Link>
 
         <Link to="/orders/details" className="block text-blue-600 underline">Order Details</Link>
-        <Link to="/orders/complete" className="block text-blue-600 underline">✅ Complete Orders (Read-Only)</Link> {/* ✅ FIXED HERE */}
+        <Link to="/orders/complete" className="block text-blue-600 underline"> Complete Orders (Read-Only)</Link> {/* ✅ FIXED HERE */}
 
         <Link to="/service-types" className="block text-blue-600 underline">Service Types</Link>
         <Link to="/new-order" className="block text-blue-600 underline">Create New Order</Link>
+        <Link to="/find-order" className="block text-blue-600 underline">🔍 Find Order</Link>
+
         <Link to="/overview" className="block text-blue-600 underline">Order Overview</Link>
       </nav>
     </div>
@@ -42,6 +45,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/find-order" element={<FindOrderPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/customers" element={<CustomerList />} />
         <Route path="/customers/cards" element={<CustomerListCards />} />

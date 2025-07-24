@@ -63,20 +63,17 @@ export default function CustomerList() {
 
     // If we reach here, it means data is loaded successfully, so display the list of customers
     return (
-        <div>
-            <h2>Customer List</h2>
-            <ul>
-                {/* Loop over the customers array and display each one as a list item */}
-                {/*c is just a placeholder name for each customer object in the array.*/}
-                {/*You can rename c to anything, like customer, and it will still work the same.*/}
+        <div className="p-6 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">🔍 Find Customer by Name</h2>
+
+            <ul className="border border-gray-300 rounded-lg divide-y divide-gray-200 bg-white shadow">
                 {customers.map((c) => (
-                    // Use customerId as a unique key for React to track items efficiently
-                    <li key={c.customerId}>
-                        {/* Show the customer name, phone, and email separated by dashes */}
-                        {c.customerName} - {c.customerPhone} - {c.customerEmail}
+                    <li key={c.customerId} className="p-4 hover:bg-blue-50 transition-all text-lg">
+                        {c.customerName}
                     </li>
                 ))}
             </ul>
         </div>
     );
+
 }
