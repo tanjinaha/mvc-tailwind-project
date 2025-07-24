@@ -58,18 +58,30 @@ export default function ServiceTypeList() {
   if (error) return <div>Error: {error}</div>;
 
   // When data is loaded and there is no error, render the list
-  return (
-    <div>
-      <h2>Service Type List</h2>
-      <ul>
-        {/* Loop through the service types and render each one in a list item */}
-        {types.map((t) => (
-          <li key={t.serviceId}>
-            {/* Display both ID and service name */}
-            {t.serviceId}. {t.serviceName}
-          </li>
-        ))}
-      </ul>
+    return (
+    <div className="flex justify-center items-center min-h-screen bg-gray-50">
+      <div className="max-w-xl w-full p-6 bg-white rounded-xl shadow-lg">
+        <h2 className="text-3xl font-bold text-center mb-6 text-indigo-700">🛠️ Service Type List</h2>
+        <ul className="space-y-4">
+          {types.map((t) => (
+            <li
+              key={t.serviceId}
+              className="flex items-center gap-3 border p-3 rounded-lg shadow-sm bg-indigo-50"
+            >
+              <span className="text-8xl">
+                {t.serviceName === "MOVING" && "🚚"}
+                {t.serviceName === "CLEANING" && "🧹"}
+                {t.serviceName === "PACKING" && "📦"}
+                {t.serviceName === "CLEANING_DELUXE" && "🛁"}
+              </span>
+              <span className="text-lg font-medium text-gray-800">
+                {t.serviceId}. {t.serviceName.replace("_", " ")}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
+
 }

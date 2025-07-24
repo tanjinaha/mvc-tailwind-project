@@ -13,11 +13,19 @@ interface OrderDetails {
   scheduleDate: string;
   price: number;
 }
+const reverseServiceMap: Record<string, number> = {
+  "MOVING": 1,
+  "PACKING": 2,
+  "CLEANING": 3,
+  "CLEANING DELUXE": 4,
+};
+
 
 export default function OrderDetailsList() {
   const [orders, setOrders] = useState<OrderDetails[]>([]);
   const [editingOrderId, setEditingOrderId] = useState<number | null>(null);
   const [editedOrder, setEditedOrder] = useState<Partial<OrderDetails>>({});
+
 
   // 🔄 Fetch all orders from backend once
   useEffect(() => {
@@ -37,11 +45,18 @@ export default function OrderDetailsList() {
     const confirm = window.confirm("💾 Are you sure you want to save the changes?");
     if (!confirm) return;
 
+    const convertedOrder = {
+      ...editedOrder,
+      serviceId: reverseServiceMap[editedOrder.serviceType as string],
+    };
+
+
     try {
       await fetch(`http://localhost:8080/orders/${orderId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(editedOrder),
+        body: JSON.stringify(convertedOrder),
+
       });
 
       setOrders((prev) =>
