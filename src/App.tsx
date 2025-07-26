@@ -17,7 +17,8 @@ import ConsultantList from "./components/ConsultantList";
 import ConsultantListCards from "./components/ConsultantListCards";
 import CompleteOrderList from "./components/CompleteOrderList";
 import FindOrderPage from "./components/FindOrderPage";
-import OrderEditPractice from "@/components/OrderEditPractice";
+
+
 
 export default function App() {
   return (
@@ -25,7 +26,7 @@ export default function App() {
       <Routes>
         {/* ✅ Home page route */}
         <Route path="/" element={<Home />} />
-        <Route path="/edit-orders-practice" element={<OrderEditPractice />} />
+       
         
 
         {/* ✅ Functional routes */}

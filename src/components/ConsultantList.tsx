@@ -35,17 +35,24 @@ export default function ConsultantList() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-  <div className="p-6 max-w-2xl mx-auto">
-    <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">🔍 Find Consultant by Name</h2>
+    <div
+      className="min-h-screen w-full bg-cover bg-center p-6 flex justify-center"
+      style={{ backgroundImage: 'url(/consultantcard.jpg)' }}
+    >
+      <div className="max-w-2xl w-full bg-white bg-opacity-90 rounded-lg p-6 shadow">
+        <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">
+          🔍 Find Consultant by Name
+        </h2>
 
-    <ul className="border border-gray-300 rounded-lg divide-y divide-gray-200 bg-white shadow">
-      {consultants.map((c) => (
-        <li key={c.consultantId} className="p-4 hover:bg-blue-50 transition-all text-lg">
-          {c.consultantName}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+        <ul className="border border-gray-300 rounded-lg divide-y divide-gray-200">
+          {consultants.map((c) => (
+            <li key={c.consultantId} className="p-4 hover:bg-blue-50 transition-all text-lg">
+              {c.consultantName}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
 
 }

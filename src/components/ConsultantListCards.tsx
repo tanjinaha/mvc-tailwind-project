@@ -32,7 +32,7 @@ export default function ConsultantListCards() {
 
   // ✅ 4. UI rendering
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
+    <div className="p-6 bg-green-200 min-h-screen">
       {/* Page title */}
       <h2 className="text-3xl font-bold mb-6 text-center">All Consultants</h2>
 

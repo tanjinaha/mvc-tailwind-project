@@ -63,17 +63,23 @@ export default function CustomerList() {
 
     // If we reach here, it means data is loaded successfully, so display the list of customers
     return (
-        <div className="p-6 max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">🔍 Find Customer by Name</h2>
+        <div
+            className="min-h-screen w-full bg-cover bg-center bg-no-repeat flex justify-center items-start p-6"
+            style={{ backgroundImage: 'url(/consultant.jpg)' }}
+        >
+            <div className="w-full max-w-2xl bg-white bg-opacity-90 rounded-lg shadow p-6">
+                <h2 className="text-3xl font-bold text-center text-blue-700 mb-6">🔍 Find Customer by Name</h2>
 
-            <ul className="border border-gray-300 rounded-lg divide-y divide-gray-200 bg-white shadow">
-                {customers.map((c) => (
-                    <li key={c.customerId} className="p-4 hover:bg-blue-50 transition-all text-lg">
-                        {c.customerName}
-                    </li>
-                ))}
-            </ul>
+                <ul className="border border-gray-300 rounded-lg divide-y divide-gray-200">
+                    {customers.map((c) => (
+                        <li key={c.customerId} className="p-4 hover:bg-blue-50 transition-all text-lg">
+                            {c.customerName}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
+
 
 }

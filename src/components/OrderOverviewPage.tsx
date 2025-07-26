@@ -33,7 +33,7 @@ export default function OrderOverviewPage() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="p-4">
+    <div className="min-h-screen bg-green-100 p-4">
       {/* 🔗 Navigation buttons */}
       <div className="mb-4 space-x-4">
         <Link to="/customers/cards">
@@ -44,21 +44,26 @@ export default function OrderOverviewPage() {
         </Link>
       </div>
 
-      {/* ✅ Order table showing only Customer, Consultant, Note */}
-      <table className="min-w-full border">
+      {/* ✅ Page title */}
+      <h2 className="text-3xl font-bold mb-4 text-center text-rose-700">
+        📝 Order Notes from Customers
+      </h2>
+
+      {/* ✅ Table */}
+      <table className="min-w-full">
         <thead>
           <tr className="bg-gray-200">
-            <th className="border p-2">Customer</th>
-            <th className="border p-2">Consultant</th>
-            <th className="border p-2">Note</th>
+            <th className="text-left p-2 border-b-2 border-blue-600">Customer</th>
+            <th className="text-left p-2 border-b-2 border-blue-600">Consultant</th>
+            <th className="text-left p-2 border-b-2 border-blue-600">Note</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order, index) => (
-            <tr key={index}>
-              <td className="border p-2">{order.customerName}</td>
-              <td className="border p-2">{order.consultantName}</td>
-              <td className="border p-2">{order.note}</td>
+            <tr key={index} className="border-b border-blue-400">
+              <td className="p-2">{order.customerName}</td>
+              <td className="p-2">{order.consultantName}</td>
+              <td className="p-2">{order.note}</td>
             </tr>
           ))}
         </tbody>
