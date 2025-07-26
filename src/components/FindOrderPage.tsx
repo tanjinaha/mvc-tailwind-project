@@ -28,9 +28,16 @@ export default function FindOrderPage() {
 
   return (
     <div
-      className="min-h-screen w-full bg-cover bg-center bg-no-repeat p-6 flex justify-center items-start"
-      style={{ backgroundImage: 'url(/orderdetail.jpg)' }}
+      className="min-h-screen w-full p-6 flex justify-center items-start"
+      style={{
+        backgroundImage: 'url(/orderdetail.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: '#f0f8ff' // optional light blue fallback
+      }}
     >
+
       <div className="max-w-xl w-full bg-white bg-opacity-90 rounded-lg p-6 shadow">
         <h2 className="text-2xl font-bold mb-4 text-center">🔍 Find Orders by Customer Name</h2>
 

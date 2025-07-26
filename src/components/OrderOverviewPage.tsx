@@ -33,7 +33,7 @@ export default function OrderOverviewPage() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="min-h-screen bg-green-100 p-4">
+    <div className="min-h-screen bg-blue-100 p-6 flex flex-col items-center">
       {/* 🔗 Navigation buttons */}
       <div className="mb-4 space-x-4">
         <Link to="/customers/cards">
@@ -45,29 +45,37 @@ export default function OrderOverviewPage() {
       </div>
 
       {/* ✅ Page title */}
-      <h2 className="text-3xl font-bold mb-4 text-center text-rose-700">
+      <h2 className="text-3xl font-bold mb-4 text-blue-800">
         📝 Order Notes from Customers
       </h2>
 
-      {/* ✅ Table */}
-      <table className="min-w-full">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="text-left p-2 border-b-2 border-blue-600">Customer</th>
-            <th className="text-left p-2 border-b-2 border-blue-600">Consultant</th>
-            <th className="text-left p-2 border-b-2 border-blue-600">Note</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order, index) => (
-            <tr key={index} className="border-b border-blue-400">
-              <td className="p-2">{order.customerName}</td>
-              <td className="p-2">{order.consultantName}</td>
-              <td className="p-2">{order.note}</td>
+      {/* ✅ Styled Table */}
+      <div className="bg-white shadow-md rounded-lg overflow-x-auto w-full max-w-5xl">
+        <table className="min-w-full table-auto border border-blue-400 text-center">
+          <thead className="bg-blue-200">
+            <tr>
+              <th className="p-2 border-b-2 border-blue-600">Customer</th>
+              <th className="p-2 border-b-2 border-blue-600">Consultant</th>
+              <th className="p-2 border-b-2 border-blue-600 text-red-700 font-semibold">Note</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {orders.map((order, index) => (
+              <tr
+                key={index}
+                className="border-b border-blue-300 hover:bg-blue-50"
+              >
+                <td className="p-2">{order.customerName}</td>
+                <td className="p-2">{order.consultantName}</td>
+                <td className="p-2 text-red-600 font-medium whitespace-pre-wrap break-words max-w-xs">
+                  {order.note}
+                </td>
+
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
